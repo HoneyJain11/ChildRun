@@ -1,30 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
+    
 {
-    Vector2 move=Vector2.left;
-    public float speed;
+    private Rigidbody2D rigidBody;
+    [SerializeField]
+    private float jumpForce;
+    [SerializeField]
+    Animator animator;
 
-    // Update is called once per frame
-    void Update()
+    private bool isGrounded = false;
+
+    public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
+
+    private void Awake()
     {
-      
-        this.transform.position = new Vector2((this.transform.position.x + move.x * speed * Time.deltaTime),
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
 
-                                               this.transform.position.y);
-        if (this.transform.position.x < -52.4)
+    private void Update()
+    {
+       
+    }
+
+
+    private void FixedUpdate()
+    {
+        bool doJump = Input.GetMouseButtonDown(0);
+        if (isGrounded)
         {
-            this.transform.position = new Vector2(0,0);
+            if (doJump)
+            {
+                JumpAnimation(true);
+                rigidBody.velocity = Vector2.up * jumpForce;
+            }
         }
         
-
-
-
-        
-
-
     }
+
+    public void JumpAnimation(bool value)
+    {
+        isGrounded = !value;
+        if (value)
+            animator.SetBool("jump", true);
+        else
+            animator.SetBool("jump", false);
+    }
+
+   
 }
- 
