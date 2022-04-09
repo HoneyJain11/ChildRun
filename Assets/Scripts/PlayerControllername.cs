@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllername : MonoBehaviour
     
 {
     private Rigidbody2D rigidBody;
@@ -13,14 +13,13 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     [SerializeField]
     private ObstacleMove ObstacleMove;
-
     [SerializeField]
     private ParallaxBgController parallaxBgController;
 
     private bool isGrounded = false;
     public bool doJump = false;
-
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
+
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -33,16 +32,9 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && doJump)
         {
-       
-            
                 JumpAnimation(true);
                 rigidBody.velocity = Vector2.up * jumpForce;
-
-            
         }
-
-        
-
     }
 
     public void JumpAnimation(bool value)
@@ -56,22 +48,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.GetComponent<ObstacleMove>())
         {
             Debug.Log("collision occur between player and obstacles");
             animator.SetBool("isrunning", false);
             collision.gameObject.GetComponent<ObstacleMove>().Speed = 0;
-            parallaxBgController.GetComponent<ParallaxBgController>().Speed=0;
-
+            parallaxBgController.Speed=0;
 
         }
      }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<ObstacleMove>().Speed = 10;
-        parallaxBgController.GetComponent<ParallaxBgController>().Speed = 10;
         animator.SetBool("isrunning", true);
-
+        collision.gameObject.GetComponent<ObstacleMove>().Speed = 10;
+        parallaxBgController.Speed = 10;
+        
     }
 }

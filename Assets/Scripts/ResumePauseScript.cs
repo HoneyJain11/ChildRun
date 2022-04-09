@@ -10,8 +10,6 @@ public class ResumePauseScript : MonoBehaviour
 
     public void PauseGame()
     {
-
-
         
         if (isPaused == true)
         {

@@ -9,7 +9,8 @@ public class ObstacleMove : MonoBehaviour
     [SerializeField]
     private float speed;
     public float Speed { get => speed; set => speed = value; }
-    public GameObject obstacles;
+    [SerializeField]
+    GameObject obstacles;
    
     
      private void GenerateObstacles()

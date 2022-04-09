@@ -21,7 +21,7 @@ public class ParallaxBgController : MonoBehaviour
     {
         this.transform.position = new Vector2((this.transform.position.x +
             move.x * Speed * Time.deltaTime), this.transform.position.y);
-        if (this.transform.position.x < -54)
+        if (this.transform.position.x < -105)
         {
             this.transform.position = new Vector2(0, 0);
         }

@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class GroundScript : MonoBehaviour
 {
-    PlayerController PlayerController;
+ 
+    PlayerView playerView;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerController = collision.gameObject.GetComponent<PlayerController>();
-        if (PlayerController)
+        playerView = collision.gameObject.GetComponent<PlayerView>();
+        if (playerView)
         {
-            PlayerController.IsGrounded = true;
-            PlayerController.JumpAnimation(!PlayerController.IsGrounded);
+            playerView.isGrounded = true;
+            playerView.playerController.JumpAnimation(!playerView.isGrounded);
         }
     }
 
