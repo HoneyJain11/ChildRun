@@ -12,20 +12,35 @@ public class BallonsScript : MonoBehaviour
     public float Speed { get => speed; set => speed = value; }
     [SerializeField]
     private GameObject ballons;
-    [HideInInspector]
-    public ScoreController ScoreController;
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        GenerateBallons();
+    }
+    
     void Update()
     {
         BallonsMove();
 
-
     }
     private void GenerateBallons()
     {
-        Instantiate(ballons.gameObject, new Vector2(20, 1), Quaternion.identity);
+        GameObject ballons = BallonPool.ballons.GetPooledObject();
+        if (ballons != null)
+        {
+            ballons.transform.position = new Vector2(20, 1);
+            ballons.transform.rotation = Quaternion.identity;
+            ballons.SetActive(true);
+        }
+        
+    }
 
+    private void GiveBallonPostion()
+    {
+        
+        ballons.transform.position = new Vector2(20, 1);
+        ballons.transform.rotation = Quaternion.identity;
+        
     }
 
     public void BallonsMove()
@@ -37,8 +52,10 @@ public class BallonsScript : MonoBehaviour
 
         if (ballons.transform.position.x < -20)
         {
-            GenerateBallons();
-            Destroy(ballons.gameObject);
+            
+            ballons.SetActive(false);
+            GiveBallonPostion();
+            ballons.SetActive(true);
 
         }
     }
@@ -48,11 +65,11 @@ public class BallonsScript : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerView>())
         {
             Debug.Log("Collisionoccur btwn ballon and player");
-            
-            GenerateBallons();
-            BallonsMove();
-            Destroy(ballons.gameObject);
-            ScoreController.IncreaseScore(10);
+            ballons.SetActive(false);
+            ScoreController.scoreController.IncreaseScore(10);
+            ballons.SetActive(true);
+            GiveBallonPostion();
+
         }
     }
 

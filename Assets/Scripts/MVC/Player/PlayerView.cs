@@ -15,7 +15,6 @@ public class PlayerView : MonoBehaviour
     public ParallaxBgController parallaxBgController;
     public bool doJump = false;
     public bool isGrounded = false;
-    
 
 
     private void Awake()
@@ -27,6 +26,7 @@ public class PlayerView : MonoBehaviour
     {
         playerController = controller;
     }
+
     private void FixedUpdate()
     {
        if (Input.GetMouseButtonDown(0))
