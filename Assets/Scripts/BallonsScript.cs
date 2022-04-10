@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 
@@ -12,39 +13,41 @@ public class BallonsScript : MonoBehaviour
     public float Speed { get => speed; set => speed = value; }
     [SerializeField]
     private GameObject ballons;
-
+    
     private void Awake()
     {
         GenerateBallons();
+        
     }
-    
+
     void Update()
     {
         BallonsMove();
-
     }
+
     private void GenerateBallons()
     {
-        GameObject ballons = BallonPool.ballons.GetPooledObject();
-        if (ballons != null)
-        {
-            ballons.transform.position = new Vector2(20, 1);
-            ballons.transform.rotation = Quaternion.identity;
-            ballons.SetActive(true);
-        }
+        GameObject ballonObject = ObjectPooler.Instance.GetPooledObject();
         
+        if (ballonObject != null)
+        {
+            ballonObject.transform.position = new Vector2(20, 1);
+            ballonObject.transform.rotation = Quaternion.identity;
+            ballonObject.SetActive(true);
+        }
+       
     }
 
-    private void GiveBallonPostion()
+    private void GiveBallonPostion( )
     {
-        
         ballons.transform.position = new Vector2(20, 1);
         ballons.transform.rotation = Quaternion.identity;
-        
     }
 
     public void BallonsMove()
     {
+        
+
         ballons.transform.position = new Vector2((ballons.transform.position.x + move.x * Speed * Time.deltaTime),
 
                                               ballons.transform.position.y);
@@ -52,7 +55,7 @@ public class BallonsScript : MonoBehaviour
 
         if (ballons.transform.position.x < -20)
         {
-            
+
             ballons.SetActive(false);
             GiveBallonPostion();
             ballons.SetActive(true);
@@ -67,9 +70,10 @@ public class BallonsScript : MonoBehaviour
             Debug.Log("Collisionoccur btwn ballon and player");
             ballons.SetActive(false);
             ScoreController.scoreController.IncreaseScore(10);
-            ballons.SetActive(true);
             GiveBallonPostion();
-
+            ballons.SetActive(true);
+            
+            
         }
     }
 
