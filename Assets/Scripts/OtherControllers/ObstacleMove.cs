@@ -27,14 +27,12 @@ public class ObstacleMove : MonoBehaviour
             obstacles.SetActive(true);
         }
 
-
     }
 
     void Update()
     {
 
         MoveObstacle();
-
 
     }
 

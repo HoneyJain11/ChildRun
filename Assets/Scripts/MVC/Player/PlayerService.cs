@@ -15,6 +15,7 @@ public class PlayerService : GenericSingleton<PlayerService>
     private void Start()
     {
         playerController = CreatePlayer();
+        playerController.SubscribeEvent();
     }
 
     public PlayerController CreatePlayer()

@@ -69,13 +69,15 @@ public class BallonsScript : MonoBehaviour
         {
             Debug.Log("Collisionoccur btwn ballon and player");
             ballons.SetActive(false);
-            ScoreController.scoreController.IncreaseScore(10);
+            EventHandler.Instance.InvokeOnBallonBurstEvent();
             GiveBallonPostion();
             ballons.SetActive(true);
             
             
         }
     }
+
+
 
 
 

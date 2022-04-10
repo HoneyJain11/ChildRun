@@ -46,4 +46,8 @@ public class PlayerView : MonoBehaviour
         playerController.AfterCollisionWork(collision);
     }
 
+    private void OnDisable()
+    {
+        playerController.UnsubscribeEvent();
+    }
 }
