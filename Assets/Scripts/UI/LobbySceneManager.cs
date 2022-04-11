@@ -11,18 +11,10 @@ public class LobbySceneManager : MonoBehaviour
     [SerializeField]
     Button BtnABC, Btn123, BtnQuit;
 
-
-   // UnityAction action = null;
-  
-
-
     public void GamePlayScene()
     {
+        SceneManager.LoadScene(1);
 
-        Debug.Log("in GamePlay");
-        SceneManager.LoadScene("GamePlayScene");
-
-        
     }
 
     

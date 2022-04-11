@@ -9,7 +9,6 @@ public class BackToLobyScript : MonoBehaviour
 {
    public Button btnBacktoLobby;
 
-    // Update is called once per frame
     void Update()
     {
 
