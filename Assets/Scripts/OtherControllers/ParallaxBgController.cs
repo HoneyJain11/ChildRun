@@ -10,7 +10,6 @@ public class ParallaxBgController : MonoBehaviour
     private float speed;
     public float Speed { get => speed; set => speed = value; }
 
-    // Update is called once per frame
     void Update()
     {
         MoveBackground(Speed);

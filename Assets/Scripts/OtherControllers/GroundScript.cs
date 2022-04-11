@@ -13,7 +13,7 @@ public class GroundScript : MonoBehaviour
         if (playerView)
         {
             playerView.isGrounded = true;
-            playerView.playerController.JumpAnimation(!playerView.isGrounded);
+            playerView.playerJump.JumpAnimation(!playerView.isGrounded);
         }
     }
 

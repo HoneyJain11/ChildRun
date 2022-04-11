@@ -10,7 +10,7 @@ public class PlayerService : GenericSingleton<PlayerService>
     [SerializeField]
     PlayerView playerView;
     [SerializeField]
-     PlayerSOList playerSOList;
+    PlayerSOList playerSOList;
 
     private void Start()
     {
@@ -20,7 +20,6 @@ public class PlayerService : GenericSingleton<PlayerService>
 
     public PlayerController CreatePlayer()
     {
-        Debug.Log("player Generated");
         PlayerSO playerSO = playerSOList.players[0];
         playerModel = new PlayerModel(playerSO);
         PlayerController player = new PlayerController(playerModel, playerView);
