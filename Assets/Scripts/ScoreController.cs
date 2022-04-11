@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreController : MonoBehaviour
+public class ScoreController : GenericSingleton<ScoreController>
 {
+    public static ScoreController scoreController;
     private TextMeshProUGUI scoreText;
     private int score = 0;
 
-    private void Awake()
+    protected override void Awake()
     {
+        scoreController = this;
         scoreText = GetComponent<TextMeshProUGUI>();
 
     }

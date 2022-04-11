@@ -8,7 +8,6 @@ public class ParallaxBgController : MonoBehaviour
     Vector2 move=Vector2.left;
     [SerializeField]
     private float speed;
-
     public float Speed { get => speed; set => speed = value; }
 
     // Update is called once per frame
