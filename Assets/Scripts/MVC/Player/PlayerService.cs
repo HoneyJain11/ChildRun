@@ -8,7 +8,7 @@ public class PlayerService : GenericSingleton<PlayerService>
     public PlayerController playerController;
     public PlayerModel playerModel;
     [SerializeField]
-     PlayerView playerView;
+    PlayerView playerView;
     [SerializeField]
      PlayerSOList playerSOList;
 

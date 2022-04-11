@@ -53,8 +53,8 @@ public class PlayerController
 
     public void UnsubscribeEvent()
     {
-        EventHandler.Instance.OnBallonBurst -= IncreaseScore();
-        EventHandler.Instance.FallOnObstacle -= DecreaseScore();
+        EventHandler.Instance.OnBallonBurst -= IncreaseScore;
+        EventHandler.Instance.FallOnObstacle -= DecreaseScore;
     }
 
     public void AfterCollisionWork(Collision2D collision)
@@ -69,19 +69,19 @@ public class PlayerController
 
     public void SubscribeEvent()
     {
-        EventHandler.Instance.OnBallonBurst += IncreaseScore();
-        EventHandler.Instance.FallOnObstacle += DecreaseScore();
+        EventHandler.Instance.OnBallonBurst += IncreaseScore;
+        EventHandler.Instance.FallOnObstacle += DecreaseScore;
     }
 
-    private Action DecreaseScore()
+    private void DecreaseScore()
     {
        ScoreController.scoreController.IncreaseScore(-5);
-        return null;
+        
     }
 
-    private Action IncreaseScore()
+    private void IncreaseScore()
     {
         ScoreController.scoreController.IncreaseScore(10);
-        return null;
+       
     }
 }

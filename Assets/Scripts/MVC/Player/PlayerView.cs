@@ -7,9 +7,7 @@ public class PlayerView : MonoBehaviour
    public PlayerController playerController;
     [HideInInspector]
     public Rigidbody2D rigidBody;
-    [SerializeField]
     public float jumpForce;
-    [SerializeField]
     public Animator animator;
     public ObstacleMove ObstacleMove;
     public ParallaxBgController parallaxBgController;

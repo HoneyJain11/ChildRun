@@ -656,7 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerView: {fileID: 3434284803150068965, guid: 4025fb7fec7c44e28b4eb64758cd2739,
     type: 3}
-  playerSOList: {fileID: 0}
+  playerSOList: {fileID: 11400000, guid: 9b0f3f23e5f0b44618f1b30ed620a512, type: 2}
 --- !u!1 &439183454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,11 +2377,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3013552634810828677, guid: bc5b63f431d504b4ea855ac07abd2a0f,
-        type: 3}
-      propertyPath: speed
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3013552634810828683, guid: bc5b63f431d504b4ea855ac07abd2a0f,
         type: 3}
