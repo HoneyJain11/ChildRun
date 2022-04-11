@@ -13,11 +13,18 @@ public class PlayerView : MonoBehaviour
     public ParallaxBgController parallaxBgController;
     public bool doJump = false;
     public bool isGrounded = false;
+    [HideInInspector]
+    public PlayerStates currentState;
+    public PlayerStates activeState;
+    public PlayerRunning playerRunning;
+    public PlayerJump playerJump;
+    public PlayerIdle playerIdle;
 
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        ChangeState(activeState);
     }
 
     public void SetPlayerControllerReference(PlayerController controller)
@@ -25,14 +32,6 @@ public class PlayerView : MonoBehaviour
         playerController = controller;
     }
 
-    private void FixedUpdate()
-    {
-       if (Input.GetMouseButtonDown(0))
-        {
-            playerController.DoJump();
-        }
-       
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -42,6 +41,17 @@ public class PlayerView : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         playerController.AfterCollisionWork(collision);
+    }
+
+    public void ChangeState(PlayerStates newState)
+    {
+        if(currentState != null)
+        {
+            currentState.OnExitState();
+
+        }
+        currentState = newState;
+        currentState.OnEnterState();
     }
 
     private void OnDisable()
