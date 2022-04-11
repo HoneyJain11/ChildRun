@@ -18,6 +18,6 @@ public class BackToLobyScript : MonoBehaviour
 
     private void BackToLobby()
     {
-        SceneManager.LoadScene("LobbyScene");
+        SceneManager.LoadScene(0);
     }
 }

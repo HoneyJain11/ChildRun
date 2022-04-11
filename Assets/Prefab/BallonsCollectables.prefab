@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c7ab7d0d6c943fbaa3585738285d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   ballons: {fileID: 7097354145607292992}
   ScoreController: {fileID: 0}

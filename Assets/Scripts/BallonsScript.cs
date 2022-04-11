@@ -10,26 +10,21 @@ public class BallonsScript : MonoBehaviour
     [SerializeField]
     private float speed;
     public float Speed { get => speed; set => speed = value; }
-    public GameObject ballons;
+    [SerializeField]
+    private GameObject ballons;
+    [HideInInspector]
     public ScoreController ScoreController;
-
-    private void GenerateBallons()
-    {
-
-        {
-            Debug.Log("Ballons generated");
-
-            Instantiate(ballons.gameObject, new Vector2(10,1), Quaternion.identity);
-        }
-
-    }
-
 
     // Update is called once per frame
     void Update()
     {
         BallonsMove();
 
+
+    }
+    private void GenerateBallons()
+    {
+        Instantiate(ballons.gameObject, new Vector2(20, 1), Quaternion.identity);
 
     }
 
@@ -40,7 +35,7 @@ public class BallonsScript : MonoBehaviour
                                               ballons.transform.position.y);
 
 
-        if (ballons.transform.position.x < -15)
+        if (ballons.transform.position.x < -20)
         {
             GenerateBallons();
             Destroy(ballons.gameObject);
@@ -50,7 +45,7 @@ public class BallonsScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.GetComponent<PlayerView>())
         {
             Debug.Log("Collisionoccur btwn ballon and player");
             
