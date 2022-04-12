@@ -16,6 +16,7 @@ public class PlayerService : GenericSingleton<PlayerService>
     {
         playerController = CreatePlayer();
         playerController.SubscribeEvent();
+        playerView.ChangeState(playerView.activeState);
     }
 
     public PlayerController CreatePlayer()

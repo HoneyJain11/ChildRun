@@ -5,26 +5,24 @@ using UnityEngine;
 
 public class PlayerRunning : PlayerStates
 {
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if (playerView.ObstacleMove.Speed != 0)
-        {
-            Run();
-        }
-       else if (Input.GetMouseButtonDown(0))
+         if (Input.GetMouseButtonDown(0))
         {
             playerView.ChangeState(playerView.playerJump);
         }
-        else if (playerView.ObstacleMove.Speed == 0)
+        else if (playerStates.runSpeed == 0)
         {
             playerView.ChangeState(playerView.playerIdle);
         }
-
+        Run();
+        
     }
 
     private void Run()

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerStates : MonoBehaviour
 {
+    public static PlayerStates playerStates;
+    [SerializeField]
+    GameObject obstaclesMove;
+    [HideInInspector]
+    public float runSpeed;
     protected PlayerView playerView;
 
-    private void Awake()
+    void Awake()
     {
+        playerStates = this;
         playerView = GetComponent<PlayerView>();
+        runSpeed = obstaclesMove.GetComponent<ObstacleMove>().Speed;
     }
-    private void Start()
-    {
-        
-    }
-
+    
     public virtual void OnEnterState()
     {
         this.enabled = true;

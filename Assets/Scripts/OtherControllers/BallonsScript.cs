@@ -67,7 +67,6 @@ public class BallonsScript : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerView>())
         {
-            Debug.Log("Collisionoccur btwn ballon and player");
             ballons.SetActive(false);
             EventHandler.Instance.InvokeOnBallonBurstEvent();
             GiveBallonPostion();
@@ -76,10 +75,5 @@ public class BallonsScript : MonoBehaviour
             
         }
     }
-
-
-
-
-
 
 }

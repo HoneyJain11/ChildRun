@@ -18,8 +18,7 @@ public class PlayerController
     public void DetectCollision(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<ObstacleMove>())
-        {
-           // playerView.animator.SetBool("isrunning", false);
+        { 
             EventHandler.Instance.InvokeFallOnObstacle();
             collision.gameObject.GetComponent<ObstacleMove>().Speed = 0;
             playerView.parallaxBgController.Speed = 0;
@@ -36,7 +35,6 @@ public class PlayerController
 
     public void AfterCollisionWork(Collision2D collision)
     {
-       // playerView.animator.SetBool("isrunning", true);
         if(collision.gameObject.GetComponent<ObstacleMove>())
         {
             collision.gameObject.GetComponent<ObstacleMove>().Speed = 10;
