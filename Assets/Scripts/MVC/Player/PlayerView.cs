@@ -11,8 +11,8 @@ public class PlayerView : MonoBehaviour
     public Animator animator;
     public ObstacleMove ObstacleMove;
     public ParallaxBgController parallaxBgController;
-    public bool doJump = false;
-    public bool isGrounded = false;
+    public JumpState doJump;
+    public GroundState isGrounded;
     [HideInInspector]
     public PlayerStates currentState;
     public PlayerStates activeState;
@@ -24,9 +24,8 @@ public class PlayerView : MonoBehaviour
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        ChangeState(activeState);
+        
     }
-
     public void SetPlayerControllerReference(PlayerController controller)
     {
         playerController = controller;

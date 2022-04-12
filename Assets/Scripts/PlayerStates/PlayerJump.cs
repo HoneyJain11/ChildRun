@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class PlayerJump : PlayerStates
 {
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             DoJump();
         }
-        else if (playerView.ObstacleMove.Speed != 0)
+        else if (playerStates.runSpeed != 0)
         {
             playerView.ChangeState(playerView.playerRunning);
         }
-        else if(playerView.ObstacleMove.Speed == 0)
+        else if(playerStates.runSpeed == 0)
         {
             playerView.ChangeState(playerView.playerIdle);
         }
-
     }
 
     public override void OnExitState()
@@ -33,20 +33,19 @@ public class PlayerJump : PlayerStates
 
     public void DoJump()
     {
-        playerView.doJump = Input.GetMouseButtonDown(0);
-
-        if (playerView.isGrounded && playerView.doJump)
+        playerView.isGrounded = GroundState.grounded;
+        playerView.doJump = JumpState.notJumped;
+        if (playerView.isGrounded == GroundState.grounded && playerView.doJump == JumpState.notJumped)
         {
-            JumpAnimation(true);
+            JumpAnimation(GroundState.notgrounded);
             playerView.rigidBody.velocity = Vector2.up * playerView.jumpForce;
         }
     }
 
-    //player jump animation
-    public void JumpAnimation(bool value)
+    public void JumpAnimation(GroundState state )
     {
-        playerView.isGrounded = !value;
-        if (value)
+     
+        if (playerView.isGrounded != state)
         {
             playerView.animator.SetBool("jump", true);
         }

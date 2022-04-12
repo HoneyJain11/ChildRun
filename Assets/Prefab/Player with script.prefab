@@ -173,9 +173,9 @@ MonoBehaviour:
   ObstacleMove: {fileID: 1644585650, guid: 69560a3af53ab46e5a1bbf26c5a2a37f, type: 3}
   parallaxBgController: {fileID: 3013552634810828677, guid: bc5b63f431d504b4ea855ac07abd2a0f,
     type: 3}
-  doJump: 0
+  doJump: 1
   isGrounded: 0
-  currentState: {fileID: 0}
+  currentState: {fileID: 4557031211699339318}
   activeState: {fileID: 4557031211699339318}
   playerRunning: {fileID: 4557031211699339318}
   playerJump: {fileID: 1947929278924889701}
@@ -187,11 +187,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3434284803150068986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 296ab76e6a66c4b5a83188a01a1be971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclesMove: {fileID: 3174966281007017949, guid: 69560a3af53ab46e5a1bbf26c5a2a37f,
+    type: 3}
+  runSpeed: 0
 --- !u!114 &1947929278924889701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,11 +202,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3434284803150068986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 402ce4c6aa69946fd83041dc9a368c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclesMove: {fileID: 3174966281007017949, guid: 69560a3af53ab46e5a1bbf26c5a2a37f,
+    type: 3}
+  runSpeed: 0
 --- !u!114 &4557031211699339318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36ad7df9d71942ea8355f509882ebb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclesMove: {fileID: 3174966281007017949, guid: 69560a3af53ab46e5a1bbf26c5a2a37f,
+    type: 3}
+  runSpeed: 0
 --- !u!114 &7778842746916139813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,8 +232,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3434284803150068986}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b2c2a97b269941a1b56039b21143791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstaclesMove: {fileID: 3174966281007017949, guid: 69560a3af53ab46e5a1bbf26c5a2a37f,
+    type: 3}
+  runSpeed: 0

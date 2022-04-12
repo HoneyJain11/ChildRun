@@ -12,8 +12,8 @@ public class GroundScript : MonoBehaviour
         playerView = collision.gameObject.GetComponent<PlayerView>();
         if (playerView)
         {
-            playerView.isGrounded = true;
-            playerView.playerJump.JumpAnimation(!playerView.isGrounded);
+            playerView.isGrounded = GroundState.notgrounded;
+            playerView.playerJump.JumpAnimation(playerView.isGrounded);
         }
     }
 

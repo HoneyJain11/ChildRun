@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class PlayerIdle : PlayerStates
 {
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if (playerView.ObstacleMove.Speed != 0)
+        if (playerStates.runSpeed != 0)
         {
             playerView.ChangeState(playerView.playerRunning);
         }
@@ -21,18 +22,14 @@ public class PlayerIdle : PlayerStates
             playerView.ChangeState(playerView.playerJump);
         }
         Idle();
-        
-
     }
 
     private void Idle()
     {
-        
-         if (playerView.ObstacleMove.Speed == 0)
-         playerView.animator.SetBool("isrunning", false);
+         if (playerStates.runSpeed == 0)
+            playerView.animator.SetBool("isrunning", false);
          else
-          playerView.ChangeState(playerView.playerRunning);
-
+         playerView.ChangeState(playerView.playerRunning);
     }
 
     public override void OnExitState()
